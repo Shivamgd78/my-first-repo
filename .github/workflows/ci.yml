@@ -1,0 +1,20 @@
+name: My First CI Workflow
+
+# 1. When should this workflow run? (The Trigger)
+on:
+  push:
+    branches: [ "main" ]
+
+# 2. What should it do? (The Jobs)
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest # Runs on a fresh Linux virtual machine provided by GitHub
+
+    steps:
+      # Step 3: Download your repository code onto the virtual machine
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      # Step 4: Run a simple command
+      - name: Print a greeting message
+        run: echo "Hello from GitHub Actions CI/CD!"
